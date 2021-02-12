@@ -117,8 +117,8 @@ void test2(S1* s){
     s->s->v1 = 6;
 }
 
-void ex1() { 
-    printf("Ex1\n"); 
+void ex7() { 
+    printf("Ex7\n"); 
     
     S2 s2 = {10};
 
