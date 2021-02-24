@@ -29,7 +29,7 @@ Quel est le problème du code ci-dessous ?
 struct Data {
     int v1;
     char c;
-} d1;
+};
 
 int main(){
     d1.c = 'a';
@@ -42,14 +42,14 @@ Quel est l'affichage du programme
 
 ```C
 typedef struct {
-    int v1 = 1;
+    int v1;
     int v2;
 } Data;
 
 int main(){
     Data d1 = {
-        v1 = 34;
-        v2 = 8;
+        .v1 = 34,
+        .v2 = 8
     };
     
     printf("Val = %d", d1.v1);
@@ -138,3 +138,48 @@ void ex7() {
     printf("Val8 : %d\n", s2.v1);
 }
 ```
+
+## Solutions
+
+### Ex 1
+
+Important, le nom du type est après le `struct`
+
+```C
+struct Point
+{
+    int x;
+    int y;
+};
+```
+
+### Ex 2 
+
+On ne peut pas utiliser directement le type 
+`Data`, on doit faire :
+
+```C
+struct Data d1;
+```
+
+### Ex 3
+
+La variable `d1` n'est pas déclarée
+
+### Ex 4
+```console
+Val = 34
+```
+
+### Ex 5
+```console
+Val = 2
+```
+
+### Ex 6
+```C
+strcpy(d.name, "Bonjour");
+```
+
+### Ex 7
+A vous de le compiler et de l'exécuter.
