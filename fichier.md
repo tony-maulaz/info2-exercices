@@ -1,5 +1,10 @@
 # Les fichiers
 
+#### Rappel format `scanf`
+
+Le format pour récupérer une chaîne de caractères
+avec des espaces `"%[^\n]s"`
+
 ## Ex 1
 Créer un programme qui réalise les opérations suivantes :
 - Crée un fichier texte et écrit `Bonjour` dedans.
@@ -32,7 +37,7 @@ Le fichier est fermé entre l'écriture et la lecture.
 ```
 
 ## Ex 4
-Créer un programme qui regarder si le fichier
+Créer un programme qui regarde si le fichier
 `name.txt` existe.
 - Si oui, afficher le nom qui est sauvé dedans
 - Sinon, demander à l'utilisateur d'entrer son nom 
