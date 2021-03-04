@@ -52,3 +52,23 @@ Veuillez entrer votre nom : > Tony
 $ ./app
 Bonjour : Tony
 ```
+
+## Ex 5
+Faire un programme qui écrit dans un fichier le carré et la racine
+d'un nombre.
+
+Les valeurs sont séparées par `,`
+
+Une ligne :
+nombre, carré, racine
+
+```console
+1,1,1
+2,,4,1.41
+3,9,1.73
+...
+```
+
+Le nombre de valeur est donné par une `constante`
+
+Ajouter une `fonction` pour lire le fichier et l'afficher à la `console`
