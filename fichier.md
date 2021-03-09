@@ -74,7 +74,10 @@ Le nombre de valeur est donné par une `constante`
 
 Ajouter une `fonction` pour lire le fichier et l'afficher à la `console`
 
+La fonction doit décoder le fichier ligne par ligne.
+
 Le code de la fonction de lecture doit être avec un `printf` :
+
 ```C
 for(...){
     int nombre;
