@@ -65,7 +65,7 @@ Une ligne :
 
 ```console
 1,1,1
-2,,4,1.41
+2,4,1.41
 3,9,1.73
 ...
 ```
@@ -73,6 +73,17 @@ Une ligne :
 Le nombre de valeur est donné par une `constante`
 
 Ajouter une `fonction` pour lire le fichier et l'afficher à la `console`
+
+Le code de la fonction de lecture doit être avec un `printf` :
+```C
+for(...){
+    int nombre;
+    int square;
+    double root;
+
+    printf("Num : %d  /  Square : %d  /  Root : %.2lf\n", nombre, square, root);
+}
+```
 
 ## Ex 6
 
