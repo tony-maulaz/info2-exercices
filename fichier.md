@@ -115,3 +115,42 @@ Meas id : 1
 Meas value : 2.34
 Meas txt : Bonjour
 ```
+
+## Ex 7
+Un fichier de mesure contient les valeurs suivantes (valeurs séparées par `\t`):
+```csv
+2021-3-9 12:3	1	34.560000
+2021-3-9 13:42	2	-98.230000
+2021-3-9 14:12	3	987.470000
+2021-3-9 15:52	4	-123.900000
+```
+
+Copier ces valeurs à l'intérieur d'un fichier.
+
+Ensuite, compléter le code suivant afin que l'on puisse choisir la ligne
+du fichier que l'on veut afficher en fonction de la variable `line`.
+
+```C
+int year, month day;
+int hour, min;
+int id;
+double value;
+
+int line = 3;
+
+// placer votre code ici :
+
+printf("\nExercice 7 : lecture\n");
+printf("Dat : %d/%d/%d\n", day, month, year);
+printf("Time : %dh%d\n", hour, min);
+printf("Value : %.2lf\n", value);
+```
+
+Par exemple en choisissant `line=3`, on doit avoir :
+
+```console
+Exercice 7 : lecture
+Dat : 9/3/2021
+Time : 14h12
+Value : 987.47
+```
