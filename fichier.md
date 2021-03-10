@@ -45,15 +45,15 @@ Quel problème a le code suivant ?
 
 ```C
 FILE* f = fopen("question.txt", "r");
-    if( f != NULL)
+if( f != NULL)
+{
+    char c;
+    while ((c = fgetc(f)) != EOF)
     {
-        char c;
-        while ((c = fgetc(f)) != EOF)
-        {
-            printf("%c", c);
-        }
+        printf("%c", c);
     }
-    f = fopen("question.txt", "r");
+}
+f = fopen("question.txt", "r");
 ```
 
 ### Q4
