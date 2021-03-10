@@ -216,3 +216,88 @@ Value : 987.47
     }
     fclose(fp);
 ```
+
+## Ex 3
+```C
+    printf("Exercice 3 sur les fichiers \n");
+    FILE* f = fopen("ex3.txt", "w");
+    if (f == NULL) 
+        exit(EXIT_FAILURE);
+    
+    int val = 7;
+    do{
+        fprintf(f,"%d\n", val);
+        val += 7;
+    }while(val < 100);
+    fclose(f);
+
+    printf("Lecture avec fscanf\n");
+    f = fopen("ex3.txt", "r");
+    while( fscanf(f,"%d",&val) != EOF ){
+        printf("%d\n", val);
+    }
+    fclose(f);
+
+    printf("Lecture avec fgets\n");
+    f = fopen("ex3.txt", "r");
+    char txt[100];
+    while (fgets(txt, 100, f) != NULL)
+    {
+        printf(txt);
+    }
+    fclose(f);
+```
+
+## Ex 4
+```C
+    FILE* f = fopen("name.txt", "r");
+
+    char name[20];
+    if (f != NULL)
+    {
+        fgets(name, 20, f);
+        fprintf(stdout, "Bonjour : %s\n", name);
+    }
+    else
+    {
+        printf("Veuillez entrer votre nom : > ");
+        scanf("%[^\n]s", name);
+        f = fopen("name.txt", "w+");
+        fputs(name, f);
+    }
+
+    fclose(f);
+```
+
+## Ex 5
+```C
+    const char* filename = "ex5.txt";
+
+    FILE* f = fopen(filename, "w");
+    if (f == NULL) exit(EXIT_FAILURE);
+
+    for (int i = 0; i < 10; i++)
+    {
+        fprintf(f, "%d,%d,%.2lf\n", i, (int)pow(i, 2), sqrt(i));
+    }
+    fclose(f);
+
+    f = fopen(filename, "r");
+    if (f == NULL) exit(EXIT_FAILURE);
+
+    do
+    {
+        int nombre;
+        int square;
+        double root;
+        const int ret = fscanf(f, "%d,%d,%lf", &nombre, &square, &root);
+
+        if (ret == EOF)
+            break;
+        else if (ret == 0)
+            exit(EXIT_FAILURE);
+
+        printf("Num : %d  /  Square : %d  /  Root : %.2lf\n", nombre, square, root);
+    } while (true);
+    fclose(f);
+```
