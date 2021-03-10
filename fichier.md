@@ -5,6 +5,71 @@
 Le format pour récupérer une chaîne de caractères
 avec des espaces `"%[^\n]s"`
 
+## Questions
+
+Pour les questions, le contenu du fichier `question.txt` est :
+```console
+ABCD
+EFGH
+1234
+```
+
+### Q1
+Quel est le problème du code ci-dessous ?
+```C
+    FILE* f = fopen("question.txt", "r");
+    char c;
+    while ((c = fgetc(f)) != EOF)
+    {
+        printf("%c", c);
+    }
+    fclose(f);
+```
+
+### Q2
+
+Quel est l'affichage du programme ?
+
+```C
+    FILE* f2 = fopen("question.txt", "r");
+    char c2  = fgetc(f2);
+    c2  = fgetc(f2);
+    c2  = fgetc(f2);
+    printf("Val = %c\n", c2);
+    fclose(f2);
+```
+
+### Q3
+
+Quel problème a le code suivant ?
+
+```C
+FILE* f = fopen("question.txt", "r");
+    if( f != NULL)
+    {
+        char c;
+        while ((c = fgetc(f)) != EOF)
+        {
+            printf("%c", c);
+        }
+    }
+    f = fopen("question.txt", "r");
+```
+
+### Q4
+
+Quel est l'affichage du programme suivant ?
+
+```C
+    FILE* f4 = fopen("question.txt", "r");
+    char txt[10];
+    char c4;
+    fgets(txt,10,f4);
+    c4  = fgetc(f2);
+    printf("Val = %c\n", c4);
+    fclose(f4);
+```
+
 ## Ex 1
 Créer un programme qui réalise les opérations suivantes :
 - Crée un fichier texte et écrit `Bonjour` dedans.
