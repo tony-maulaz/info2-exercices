@@ -70,6 +70,24 @@ Quel est l'affichage du programme suivant ?
     fclose(f4);
 ```
 
+### Q4
+
+Quel est l'affichage du programme suivant ?
+
+```C
+    FILE* f5 = fopen("question.txt", "r");
+    char txt5[10];
+    char c5;
+    fgets(txt5,10,f5);
+    c5  = fgetc(f5);
+    c5  = fgetc(f5);
+    fgets(txt5,10,f5);
+    c5  = fgetc(f5);
+    printf("Val c5 = %c\n", c5);
+    printf("Val txt5 = %s\n", txt5);
+    fclose(f5);
+```
+
 ## Ex 1
 Créer un programme qui réalise les opérations suivantes :
 - Crée un fichier texte et écrit `Bonjour` dedans.
