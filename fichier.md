@@ -44,16 +44,16 @@ Quel est l'affichage du programme ?
 Quel problème a le code suivant ?
 
 ```C
-FILE* f = fopen("question.txt", "r");
-if( f != NULL)
+FILE* f3 = fopen("question.txt", "r");
+if( f3 != NULL)
 {
-    char c;
-    while ((c = fgetc(f)) != EOF)
+    char c3;
+    while ((c3 = fgetc(f3)) != EOF)
     {
-        printf("%c", c);
+        printf("%c", c3);
     }
 }
-f = fopen("question.txt", "r");
+f3 = fopen("question.txt", "r");
 ```
 
 ### Q4
@@ -65,7 +65,7 @@ Quel est l'affichage du programme suivant ?
     char txt[10];
     char c4;
     fgets(txt,10,f4);
-    c4  = fgetc(f2);
+    c4  = fgetc(f4);
     printf("Val = %c\n", c4);
     fclose(f4);
 ```
