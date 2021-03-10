@@ -168,3 +168,51 @@ Dat : 9/3/2021
 Time : 14h12
 Value : 987.47
 ```
+
+# Solutions
+## Ex 1 et 2
+```C
+    const char fname[] = "f_ex1.txt";
+
+    FILE* fp = fopen(fname, "w");
+    if (fp == NULL) exit(EXIT_FAILURE);
+
+    fprintf(fp, "Bonjour");
+    fclose(fp);
+
+    fp = fopen(fname, "a");
+    if (fp == NULL) exit(EXIT_FAILURE);
+
+    fprintf(fp, " tout le monde");
+    fclose(fp);
+
+    // Ex 2 deuxième ligne
+    fp = fopen(fname, "a");
+    if (fp == NULL) exit(EXIT_FAILURE);
+
+    fprintf(fp, "\nTout le monde");
+    fclose(fp);
+
+    // lecture fgets
+    fp = fopen(fname, "r");
+    if (fp == NULL) exit(EXIT_FAILURE);
+
+    char txt[30];
+    while (fgets(txt, 30, fp) != NULL)
+    {
+        printf("%s", txt);
+    }
+    fclose(fp);
+
+    // lecture fgetc
+    fp = fopen(fname, "r");
+    if (fp == NULL) exit(EXIT_FAILURE);
+
+    char c;
+    printf("\nFichier fgetc: \n");
+    while ((c = fgetc(fp)) != EOF)
+    {
+        printf("%c", c);
+    }
+    fclose(fp);
+```
