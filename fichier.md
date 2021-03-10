@@ -70,7 +70,7 @@ Quel est l'affichage du programme suivant ?
     fclose(f4);
 ```
 
-### Q4
+### Q5
 
 Quel est l'affichage du programme suivant ?
 
