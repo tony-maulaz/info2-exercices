@@ -253,6 +253,26 @@ Value : 987.47
 ```
 
 # Solutions
+## Q1
+On doit toujours tester si le fichier est bien ouvert
+```C
+if( f == NULL )
+    ....
+```
+
+## Q2
+```console
+Val = C
+```
+
+## Q3
+Le fichier n'est pas fermé
+
+## Q4
+```console
+Val = E
+```
+
 ## Ex 1 et 2
 ```C
     const char fname[] = "f_ex1.txt";
