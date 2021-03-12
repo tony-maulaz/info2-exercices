@@ -124,3 +124,31 @@ pi = pi1;
 pc = &val_c;
 *pi = *pc;
 ```
+
+## Ex 2
+- Quand on déclare `int t1[3];`, on obtient ?
+- Quand on déclare `int *p1;`, on obtient ?
+- Quand on déclare `int t2[3][4];`, on obtient ?
+- Quand on déclare `int **p2;`, on obtient ?
+- Quand on déclare `int *t3[3];`, on obtient ?
+- Quand on déclare `int (*p3)[3];` on obtient ?
+
+
+# Solutions
+
+## Ex 2
+- trois int en mémoire
+- un pointeur de int
+- trois tableaux de quatre int
+- un pointeur de pointeur de int
+- trois pointeurs de int
+- un pointeur de tableau de 3 int
+
+```C
+int t1[3] = { 1, 2, 3 };
+int *p1 = &t1[0];
+int t2[4][3] = {{1,2,3}, {4,5,6}, {7,8,9}, {10,11,12}};
+int **p2 = &p1;
+int *t3[3] = { &t1[1], &t2[0][0], &t2[1][2] };
+int (*p3)[3] = &t2[3];
+```
