@@ -31,9 +31,9 @@ représenter le résultat avec un tableau comme celui-ci.
 
 N'oubliez pas d'inscrire aussi la valeur des pointeurs
 
-Variable | Adresse | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
----|---|---|---|---|---|---|---|---|---|---
-val_i | 10 | 12
+Variable | Adresse | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+---|---|---|---|---|---|---|---|---|---|---|---
+val_i | 10 | 12 
 val_d | 11 | 2.34
 val_c | 12 | 'a'
 pi | 20 | 0
@@ -135,6 +135,21 @@ pc = &val_c;
 
 
 # Solutions
+
+## Ex 1
+Variable | Adresse | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+---|---|---|---|---|---|---|---|---|---|---|---
+val_i | 10 | 12 | 10 | 5 | 5 | 6 | 2 | 6 | 2 | 2 | 5
+val_d | 11 | 2.34 | | 0.123 | | | 2.3  
+val_c | 12 | 'a' | | | f | 6 | | | | | 5
+pi | 20 | 0 | 10 | 10 | | 12 | 0 | 10 | 10 | 10 | 10
+pi1 | 21 | 0 | | | | | | 10 | 0 | 10 | 10
+pd | 21 | 0 | | 11 | | | 11
+pc | 22 | 0 | | | 12 | 12 | | | | | 12
+*pi | x | x | 10 | 5 | | | | 6 | 2 | 2 | 5
+*pi1 | x | x | | | | | | 6 | 0 | 2 | 5
+*pd | x | x | | 0.123 | | | 2.3
+*pc | x | x | | | f | 6 | | | | | 5
 
 ## Ex 2
 - trois int en mémoire
