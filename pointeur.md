@@ -55,3 +55,13 @@ void main(){
     printf("Res : %d\n", point_func(tab));
 }
 ```
+
+## Ex 5
+Quel est l'affichage du programme
+
+```C
+int tab[] = {1,2,3};
+int *p;
+p = tab + 2;
+printf("Val : %d", *p);
+```
