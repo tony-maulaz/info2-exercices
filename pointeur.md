@@ -65,3 +65,38 @@ int *p;
 p = tab + 2;
 printf("Val : %d", *p);
 ```
+
+# Solutions
+
+## Ex 1
+```C
+tab[1];
+pi[1];
+```
+
+## Ex 2
+```console
+Val 1 : 1
+Val 2 : 4
+Val 3 : 1
+```
+
+## Ex 3
+```console
+Val 1 : 8
+Val 2 : B
+Val 3 : B
+Val 4 : o
+Val 5 : u
+Val 6 : 5
+```
+
+## Ex 4
+```console
+Res : 10
+```
+
+## Ex 5
+```console
+Res ex 5 : 3
+```
