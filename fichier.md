@@ -359,6 +359,12 @@ Le fichier n'est pas fermé
 Val = E
 ```
 
+## Q5
+```console
+Val c5 = 1
+Val txt5 = GH
+```
+
 ## Ex 1 et 2
 ```C
     const char fname[] = "f_ex1.txt";
@@ -489,6 +495,62 @@ Val = E
         printf("Num : %d  /  Square : %d  /  Root : %.2lf\n", nombre, square, root);
     } while (true);
     fclose(f);
+```
+## Ex 6
+```C
+    Meas m1 = {.id = 1, .value = 2.34, .txt = "Bonjour"};
+
+    FILE* fp = fopen("ex6_struct.dat", "w");
+    if (fp == NULL) exit(EXIT_FAILURE);
+
+    fwrite(&m1, sizeof(Meas), 1, fp);
+    fclose(fp);
+
+    fp = fopen("ex6_struct.dat", "r");
+    if (fp == NULL) exit(EXIT_FAILURE);
+    Meas m2;
+    fread(&m2, sizeof(Meas), 1, fp);
+
+    printf("\nExercice 6 : structure\n");
+    printf("Meas id : %d\n", m2.id);
+    printf("Meas value : %.2lf\n", m2.value);
+    printf("Meas txt : %s\n", m2.txt);
+    fclose(fp);
+```
+## Ex 7
+```C
+    FILE* fp = fopen("ex7_meteo.dat", "w");
+    if (fp == NULL) 
+        exit(EXIT_FAILURE);    
+
+    // date                id    value
+    // 2021-03-09 14:56    1      4.56
+    int year = 2021;
+    int month = 03;
+    int day = 9;
+    int hour = 12;
+    int min = 3;
+    int id = 1;
+    double value = 34.56;
+    fprintf(fp, "%d-%d-%d %d:%d\t%d\t%lf\n", year, month, day, hour, min, id, value);
+    fprintf(fp, "%d-%d-%d %d:%d\t%d\t%lf\n", year, month, day, 13, 42, 2, -98.23);
+    fprintf(fp, "%d-%d-%d %d:%d\t%d\t%lf\n", year, month, day, 14, 12, 3, 987.47);
+    fprintf(fp, "%d-%d-%d %d:%d\t%d\t%lf\n", year, month, day, 15, 52, 4, -123.9);
+    fclose(fp);
+
+    fp = fopen("ex7_meteo.dat", "r");
+    if (fp == NULL) 
+        exit(EXIT_FAILURE);
+        
+    int line = 3;
+    for (int i = 0; i < line; i++)
+        fscanf(fp, "%d-%d-%d %d:%d\t%d\t%lf", &year, &month, &day, &hour, &min, &id, &value);
+
+    printf("\nExercice 7 : lecture\n");
+    printf("Dat : %d/%d/%d\n", day, month, year);
+    printf("Time : %dh%d\n", hour, min);
+    printf("Value : %.2lf\n", value);
+    fclose(fp);
 ```
 
 ## Ex 8
