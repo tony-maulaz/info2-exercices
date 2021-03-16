@@ -254,11 +254,11 @@ Value : 987.47
 
 ## Ex 8
 
-**8.1 : ** Quelle est la différence entre ces deux programmes :
+**8.1 :** Quelle est la différence entre ces deux programmes :
 
-**8.2 : ** Dans quel cas ces programmes auront-ils un comportement différent ?
+**8.2 :** Dans quel cas ces programmes auront-ils un comportement différent ?
 
-**8.3 : ** Quelle version semble préférable, et pourquoi ?
+**8.3 :** Quelle version semble préférable, et pourquoi ?
 
 <table>
 <th>Programme 1</th>
