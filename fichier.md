@@ -252,6 +252,54 @@ Time : 14h12
 Value : 987.47
 ```
 
+## Ex 8
+
+**8.1 : ** Quelle est la différence entre ces deux programmes :
+
+**8.2 : ** Dans quel cas ces programmes auront-ils un comportement différent ?
+
+**8.3 : ** Quelle version semble préférable, et pourquoi ?
+
+<table>
+<th>Programme 1</th>
+<th>Programme 2</th>
+<tr>
+<td>
+  <pre lang="C">
+    
+    #include <stdio.h>
+
+    int main()
+    {
+        char texte[80];
+        printf("Saisir un texte:");
+        gets(texte);
+        printf("Texte: %s\n", texte);
+    }
+  </pre>
+</td>
+<td>
+  <pre lang="C">
+
+    int main()
+    {
+        char texte[80];
+        int longueur;
+
+        printf("Saisir un texte:");
+        fgets(texte, 80, stdin);
+        // Suppression du \n terminal
+        longueur = strlen(texte);
+        if (texte[longueur - 1] == '\n')
+            texte[longueur - 1] = '\0';
+        printf("Texte: %s\n", texte);
+    }
+
+  </pre>
+</td>
+</tr>
+</table>
+
 # Solutions
 ## Q1
 On doit toujours tester si le fichier est bien ouvert
@@ -404,3 +452,18 @@ Val = E
     } while (true);
     fclose(f);
 ```
+
+## Ex 8
+
+#### 8.1 :
+Le programme 2 utilise l’instruction fgets(texte, 80, stdin) au lieu de gets(texte) pour effectuer la saisie d’un texte.
+
+#### 8.2 :
+Si l’utilisateur saisit plus de 80 caractères, ces deux programmes auront un comportement différent. 
+
+Le programme 1 écrira en mémoire au-delà de la limite du tableau texte, ce qui pourra causer des dysfonctionnements du programme survenant à un moment imprévisible.
+
+Le programme 2 arrêtera la lecture du texte au 80ème caractère. Le reste du texte restera dans le tampon d’entrée.
+
+#### 8.3 :
+Le programme 2 a un fonctionnement plus sûr. Même si cela coûte un peu plus d’effort de programmation d’utiliser fgets à la place de gets, il est préférable d’utiliser dans des programmes industriels fgets pour éviter que les actions de l’utilisateur ne puissent déboucher sur des comportements erratiques.
