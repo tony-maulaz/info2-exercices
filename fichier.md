@@ -300,6 +300,44 @@ Value : 987.47
 </tr>
 </table>
 
+## Ex 9
+
+Il faut compléter le code suivant afin de sauvegarder le tableau `tab` dans un fichier.
+
+Ensuite le code doit ouvrir le fichier et afficher les valeurs qui ont été écrites dedans.
+
+```C
+    double tab[] = {1.2, 4.5, 123.4, -12.893, 45.66, 56.5, 1, 2, 3};
+
+    const int nbr_elem = // calcul du nombre d'éléments
+    // Écriture dans le fichier
+    fclose(fp);
+
+    double tab_r[100];
+    // Lecture du fichier et écriture des valeurs dans le tableau tab_r
+    fclose(fp);
+
+    // Affichage des valeurs du tableau
+    printf("Val : ");
+    for(int i=0; i<nbr_elem; i++)
+        printf(" %.2lf ", tab_r[i]);
+```
+
+## Ex 10
+
+A la fin du code suivant, quelle est la différence entre le contenu des deux fichiers ?
+
+```C
+    FILE* fp = fopen("ex10_file_1.dat", "w");
+    char buffer_out[] = {'1','2','3'};
+    fwrite(buffer_out, sizeof(char), 3, fp);
+    fclose(fp);
+
+    fp = fopen("ex10_file_2.dat", "w");
+    fprintf(fp, "123");
+    fclose(fp);
+```
+
 # Solutions
 ## Q1
 On doit toujours tester si le fichier est bien ouvert
@@ -467,3 +505,29 @@ Le programme 2 arrêtera la lecture du texte au 80ème caractère. Le reste du t
 
 #### 8.3 :
 Le programme 2 a un fonctionnement plus sûr. Même si cela coûte un peu plus d’effort de programmation d’utiliser fgets à la place de gets, il est préférable d’utiliser dans des programmes industriels fgets pour éviter que les actions de l’utilisateur ne puissent déboucher sur des comportements erratiques.
+
+## Ex 9
+```C
+    // Write
+    FILE* fp = fopen("ex9_file.dat", "w");
+    double tab[] = {1.2, 4.5, 123.4, -12.893, 45.66, 56.5, 1, 2, 3};
+
+    const int nbr_elem = sizeof(tab) / sizeof(double);
+    fwrite(&tab, sizeof(double), nbr_elem, fp);
+    fclose(fp);
+
+    // Read
+    double tab_r[100];
+    fp = fopen("ex9_file.dat", "r");
+    fread(&tab_r, sizeof(double), nbr_elem, fp);
+    fclose(fp);
+
+    printf("Val : ");
+    for(int i=0; i<nbr_elem; i++)
+        printf(" %.2lf ", tab_r[i]);
+
+    printf("\n");
+```
+
+## Ex 10
+Aucune
