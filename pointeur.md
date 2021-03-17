@@ -124,6 +124,22 @@ txt[2] = 'b';
 printf("Txt = %s\n", txt);
 ```
 
+## Ex 10
+
+Quel est l'affichage du programme ?
+
+```C
+//sizeof(int) = 4
+
+int tab[] = {10,20,30,40,50,60,70,80,90};
+int* p1 = tab;
+int* p2 = &tab[4];
+printf("Val1 = %d\n", (p2 - p1));
+printf("Val2 = %d\n", *(++p2));
+printf("Val3 = %d\n", *(p2-2));
+printf("Val4 = %d\n", *(p2));
+```
+
 # Solutions
 
 ## Ex 1
@@ -184,4 +200,12 @@ c1 = strlen(txt1) > strlen(txt2) ? txt1 : txt2;
 ## Ex 9
 ```console
 Txt = HAblo
+```
+
+## Ex 10
+```console
+Val1 = 4
+Val2 = 60
+Val3 = 40
+Val3 = 60
 ```
