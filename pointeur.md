@@ -78,6 +78,24 @@ Quel est l'affichage du programme
     printf("Val 3 : %c\n", *c);  
 ```
 
+## Ex 7
+
+Complèter la fonction `func_ex7` avec une boucle `while`, afin de transformer la chaîne de caractère
+en majuscule.
+
+```C
+void func_ex7(char* p){
+}
+
+char txt[] = "Bonjour";
+func_ex7(txt);
+printf("%s\n", txt);
+```
+
+```console
+BONJOUR
+```
+
 # Solutions
 
 ## Ex 1
