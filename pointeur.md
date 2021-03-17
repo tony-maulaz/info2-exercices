@@ -96,6 +96,20 @@ printf("%s\n", txt);
 BONJOUR
 ```
 
+## Ex 8
+Ajouter une ligne de code pour que le programme ci-dessous
+affiche la plus grande chaîne de caractère.
+
+```C
+char txt1[] = "Bonjour";
+char txt2[] = "Hello";
+
+char* c1 = NULL;
+// votre code ici
+
+printf("%s\n", c1);
+```
+
 # Solutions
 
 ## Ex 1
@@ -136,4 +150,19 @@ Res ex 5 : 3
 Val 1 : B
 Val 2 : j
 Val 3 : o
+```
+
+## Ex 7
+```C
+void func_ex7(char* p){
+    size_t i = 0;
+    do{
+        p[i] = toupper(p[i]);
+    }while(p[i++] != '\0');
+}
+```
+
+## Ex 8
+```C
+c1 = strlen(txt1) > strlen(txt2) ? txt1 : txt2;
 ```
