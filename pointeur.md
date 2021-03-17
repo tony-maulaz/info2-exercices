@@ -110,6 +110,20 @@ char* c1 = NULL;
 printf("%s\n", c1);
 ```
 
+## Ex 9
+Quel est l'affichage du programme suivant ?
+
+```C
+char txt[] = "Hello";
+
+char* c1 = txt;
+
+c1[1] = 'A';
+txt[2] = 'b';
+
+printf("Txt = %s\n", txt);
+```
+
 # Solutions
 
 ## Ex 1
@@ -165,4 +179,9 @@ void func_ex7(char* p){
 ## Ex 8
 ```C
 c1 = strlen(txt1) > strlen(txt2) ? txt1 : txt2;
+```
+
+## Ex 9
+```console
+Txt = HAblo
 ```
