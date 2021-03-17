@@ -66,6 +66,18 @@ p = tab + 2;
 printf("Val : %d", *p);
 ```
 
+## Ex 6
+Quel est l'affichage du programme
+```C
+    char txt[] = "Bonjour";
+    char* c = txt;
+    printf("Val 1 : %c\n", *c);
+    c = &txt[3];
+    printf("Val 2 : %c\n", *c);
+    c++;
+    printf("Val 3 : %c\n", *c);  
+```
+
 # Solutions
 
 ## Ex 1
@@ -99,4 +111,11 @@ Res : 10
 ## Ex 5
 ```console
 Res ex 5 : 3
+```
+
+## Ex 6
+```console
+Val 1 : B
+Val 2 : j
+Val 3 : o
 ```
