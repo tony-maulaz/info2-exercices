@@ -140,6 +140,31 @@ printf("Val3 = %d\n", *(p2-2));
 printf("Val4 = %d\n", *(p2));
 ```
 
+## Ex 11
+Quel est l'affichage du programme suivant :
+```C
+    int tab1[] = {1, 4, 7, 8, 12};
+    int* pTab1 = tab1;
+    int* p1 = tab1;
+    int* p2 = tab1 + 1;
+    int* pTab[] = {tab1, tab1+2, tab1+3};
+    int** pp1 = pTab+1;
+    int** pp2 = &p1;
+    const char* tabText[] = {"bonjour", "hello", "foo", "bar"};
+
+    puts("\nExemple de pointeurs");
+    printf("Val 1 : %d\n", pTab1[1]);
+    printf("Val 2 : %d\n", *(pTab1+2));
+    printf("Val 3 : %ld\n", pTab[2] - pTab1);
+    printf("Val 4 : %d\n", **pp2);
+    printf("Val 5 : %d\n", **pp1);
+    printf("Val 6 : %d\n", pp1[1][1]);
+    printf("Val 7 : %c\n", tabText[1][2]);
+    printf("Val 8 : %d\n", *(*pp1-1));
+    printf("Val 9 : %d\n", **(pp1-1));
+    printf("Val 10 : %c\n", **(tabText+2));
+```
+
 # Solutions
 
 ## Ex 1
@@ -209,3 +234,6 @@ Val2 = 60
 Val3 = 40
 Val3 = 60
 ```
+
+## Ex 11
+Executer le code...
