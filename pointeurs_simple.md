@@ -38,8 +38,8 @@ val_d | 11 | 2.34
 val_c | 12 | 'a'
 pi | 20 | 0
 pi1 | 21 | 0
-pd | 21 | 0
-pc | 22 | 0
+pd | 22 | 0
+pc | 23 | 0
 *pi | x | x
 *pi1 | x | x
 *pd | x | x
