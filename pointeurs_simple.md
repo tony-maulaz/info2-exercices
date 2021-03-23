@@ -127,10 +127,10 @@ pc = &val_c;
 
 ## Ex 2
 - Quand on déclare `int t1[3];`, on obtient ?
-- Quand on déclare `int *p1;`, on obtient ?
+- Quand on déclare `int* p1;`, on obtient ?
 - Quand on déclare `int t2[3][4];`, on obtient ?
-- Quand on déclare `int **p2;`, on obtient ?
-- Quand on déclare `int *t3[3];`, on obtient ?
+- Quand on déclare `int** p2;`, on obtient ?
+- Quand on déclare `int* t3[3];`, on obtient ?
 - Quand on déclare `int (*p3)[3];` on obtient ?
 
 
