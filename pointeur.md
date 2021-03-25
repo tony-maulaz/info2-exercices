@@ -164,6 +164,19 @@ Quel est l'affichage du programme suivant :
     printf("Val 9 : %d\n", **(pp1-1));
     printf("Val 10 : %c\n", **(tabText+2));
 ```
+## Ex 12
+
+Remplacer les `...` pour que le programme affiche le nom du fichier
+
+```C
+char* argv[] = {"./app", "-ofile.txt", "-n5"};
+char* c = ...;
+printf("Le nom du fichier est : %s\n", c);
+```
+
+```console
+Le nom du fichier est : file.txt
+```
 
 # Solutions
 
@@ -237,3 +250,4 @@ Val3 = 60
 
 ## Ex 11
 Executer le code...
+
