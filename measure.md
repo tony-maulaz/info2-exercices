@@ -9,9 +9,9 @@ Afin de simuler une mesure journalière, il faut utiliser une boucle `for`.
 
 Chaque jour le fichier est ouvert pour l'écriture de la nouvelle mesure et ensuite fermé.
 
-Donc chaque jour le process est :
-- Créer une nouvelle structure `Data` pour le jour en cours
-- Remplir la structure avec des mesures
+Donc chaque jour le processus est :
+- Initialiser une nouvelle structure `Data` pour le jour en cours
+- Remplir le tableau `Measure` dans la structure avec les valeurs aléatoires.
 - Sauver la structure dans le fichier de mesures.
 
 Dans `measure` :
@@ -20,7 +20,7 @@ Dans `measure` :
 
 Pour les nombres aléatoires, utiliser le générateur `srand`.
 
-Il y a une mesure par jour et la variable `day` représente le numéro du jour entre `1` et `365`,
+Il y a une mesure par jour et la variable `day` dans la structure `Data` représente le numéro du jour entre `1` et `365`,
 
 Les mesures ne commencent pas au jour `1`, le  jour de départ est choisit par un `#define` à `20`
 
@@ -36,7 +36,9 @@ Développer une fonction pour pouvoir extraire une structure `Data` pour un jour
 Cette fonction va extraire la structure depuis le fichier que vous avez créé avant.
 
 Développer une fonction pour pouvoir extraire un tableau de structure `Data` pour un jour donné en paramètre (voir le prototype de la fonction dans le code ci-dessous).
+
 Le nombre de mesure à lire est définit par `#define NBR_READ_MEASURES`
+
 Cette fonction va extraire le tableau de structure depuis le fichier que vous avez créé avant.
 
 Si on extrait les valeurs qui ont été sauvées dans le fichier avec comme jour de départ `20`, on devrait avoir quelque chose ainsi :
