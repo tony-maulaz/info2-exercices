@@ -96,6 +96,12 @@ void main()
     // On simule une mesure par jour
     for (int i = 0; i < NBR_DAY; i++)
     {
+        // init de la structure
+        // init du numéro du jour
+        
+        // Boucle pour remplir le tableau de mesure
+        for (int m = 0; m < NBR_MEASURE; m++)
+        {}
     }
 
     // Partie lecture
