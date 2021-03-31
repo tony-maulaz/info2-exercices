@@ -120,7 +120,7 @@ void main()
     
     // Test si le programme fonctionne
 
-    printf("\nTest de la lecutre\n");
+    printf("\nTest de la lecture\n");
 
     if( NumDayToRead == res.day ){
         printf("\033[1;32mLecture d'un résultat ok\n\033[0m");
