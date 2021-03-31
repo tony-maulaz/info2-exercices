@@ -39,7 +39,7 @@ Développer une fonction pour pouvoir extraire un tableau de structure `Data` po
 Le nombre de mesure à lire est définit par `#define NBR_READ_MEASURES`
 Cette fonction va extraire le tableau de structure depuis le fichier que vous avez créé avant.
 
-Les données dans le fichier seront ainsi si le jour de départ vaut `20`:
+Si on extrait les valeurs qui ont été sauvées dans le fichier avec comme jour de départ `20`, on devrait avoir quelque chose ainsi :
 ```console
 day = 20
 measure[0] : x=0, value = ...
