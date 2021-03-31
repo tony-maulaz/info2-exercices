@@ -9,7 +9,11 @@ Afin de simuler une mesure journalière, il faut utilise une boucle `for`.
 
 Chaque jour le fichier est ouvert pour l'écriture de la nouvelle mesure et ensuite fermé.
 
-On remplis la structure `Data` avec des mesures aléatoires, et ensuite on sauve dans le fichier
+Donc chaque jour le process est :
+- Créer une nouvelle structure `Data` pour le jour en cours
+- Remplir la structure avec des mesures
+- Sauver la structure dans le fichier de measure.
+- Ouvre le fichier
 
 Dans `measure` :
 - `x` : l'indice de la mesure qui commence à `0` et s'incrémente de `1`
@@ -29,10 +33,34 @@ Faire une fonction `reset` qui permet de mettre tout les champs d'une structure 
 ## Lecture
 Une fois les mesures terminées, il faut afficher la taille du fichier en `byte`.
 
-Développer une fonction pour pouvoir lire la mesure d'un jour.
+Développer une fonction pour pouvoir extraire une structure `Data` pour un jour donné en paramètre (voir le prototype de la fonction dans le code ci-dessous).
 
-Développer une fonction pour pouvoir lire plusieurs mesure à partir d'un jour.
-Le nombre de mesure à lire est définit par un `#define`
+Développer une fonction pour pouvoir extraire un tableau de structure `Data` pour un jour donné en paramètre (voir le prototype de la fonction dans le code ci-dessous).
+Le nombre de mesure à lire est définit par `#define NBR_READ_MEASURES`
+
+
+Les données dans le fichier seront ainsi si le jour de départ vaut `20`:
+```console
+day = 20
+measure[0] : x=0, value = ...
+measure[1] : x=1, value = ...
+measure[2] : x=2, value = ...
+measure[3] : x=3, value = ...
+...
+day = 21
+measure[0] : x=0, value = ...
+measure[1] : x=1, value = ...
+measure[2] : x=2, value = ...
+measure[3] : x=3, value = ...
+...
+day = 22
+measure[0] : x=0, value = ...
+measure[1] : x=1, value = ...
+measure[2] : x=2, value = ...
+measure[3] : x=3, value = ...
+...
+```
+
 
 ```C
 #define START_DAY 20
