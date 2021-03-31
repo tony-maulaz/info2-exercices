@@ -5,15 +5,14 @@ Il faut développer un programme pour sauver des mesures dans un fichier binaire
 
 Si il est utilisé plusieurs fois, le nom du fichier doit être dans une variable.
 
-Afin de simuler une mesure journalière, il faut utilise une boucle `for`.
+Afin de simuler une mesure journalière, il faut utiliser une boucle `for`.
 
 Chaque jour le fichier est ouvert pour l'écriture de la nouvelle mesure et ensuite fermé.
 
 Donc chaque jour le process est :
 - Créer une nouvelle structure `Data` pour le jour en cours
 - Remplir la structure avec des mesures
-- Sauver la structure dans le fichier de measure.
-- Ouvre le fichier
+- Sauver la structure dans le fichier de mesures.
 
 Dans `measure` :
 - `x` : l'indice de la mesure qui commence à `0` et s'incrémente de `1`
@@ -21,11 +20,11 @@ Dans `measure` :
 
 Pour les nombres aléatoires, utiliser le générateur `srand`.
 
-Il y a une mesure par jour et le la variable `day` représente le numéro du jour entre `1` et `365`,
+Il y a une mesure par jour et la variable `day` représente le numéro du jour entre `1` et `365`,
 
 Les mesures ne commencent pas au jour `1`, le  jour de départ est choisit par un `#define` à `20`
 
-Le nombre de jour de mesure est donné par un `#define`
+Le nombre de jour de mesure est donné par un `#define NBR_DAY`
 
 Faire une fonction `reset` qui permet de mettre tout les champs d'une structure `Data` à 0.
 
