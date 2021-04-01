@@ -117,3 +117,4 @@ void main()
 
 ## Ex 3
 - Ne pas oublier de libérer la mémoire dans le `main` après le `printf`
+- Ne pas oublier de tester si le retour de `stringToUpper` n'est pas `NULL`
