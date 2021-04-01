@@ -10,7 +10,10 @@ Ajouter tout le code nécessaire pour que le programme soit fait avec les bonnes
 Compléter le code ci-dessous
 
 ```C
+void main()
+{
     const int nbr = 5;
+}
 ```
 
 ## Ex 2
