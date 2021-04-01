@@ -117,4 +117,36 @@ void main()
 
 ## Ex 3
 - Ne pas oublier de libérer la mémoire dans le `main` après le `printf`
-- Ne pas oublier de tester si le retour de `stringToUpper` n'est pas `NULL`
+- Ne pas oublier de tester si le retour de `stringToUpper` n'est pas `NULL` si la fonction peut retourner `NULL`
+
+```C
+char* stringToUpper(char* txt){
+    size_t size = strlen(txt) + 1;
+    char* c = (char*)malloc(size);
+
+    if( c == NULL )
+    {
+        exit(EXIT_FAILURE);
+    }
+
+    for(int i=0; i<size; i++){
+        c[i] = toupper( txt[i] );
+    }
+
+    return c;
+}
+
+void ex3() 
+{
+    char* text = "Bonjour";
+    char* c = stringToUpper(text);
+
+    // si il n'y a pas d'exit() dans la fonction stringToUpper et
+    // que la fonction peut retourner une valeur NULL, 
+    // il faut tester si le retour de stringToUpper ici
+
+    printf("%s\n", c);
+    // a ne pas oublier
+    free(c);
+}
+```
