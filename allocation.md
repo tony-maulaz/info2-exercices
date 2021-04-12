@@ -59,6 +59,33 @@ void main()
 }
 ```
 
+## Ex 4
+Compléter le code ci-dessous pour :
+1. Allouer un tableau de 7 entiers avec le code de validation nécessaire
+1. La boucle `for` simule un programme qui va ajouter des valeurs dans le tableau
+1. Ajouter du code pour que si l'on dépasse la capacité du tableau, on **double** sa capacité.
+1. Ajouter les tests pour que le code soit robuste.
+
+```C
+void ex4()
+{
+    printf("Ex 4 allocation\n");
+    int size = 7;
+    
+    int* tab = //allouer un tableau de 7 entiers 
+
+    for(int i = 0; i<20; i++){
+        if( i < size )
+            tab[i] = i;
+        else{
+            // ???
+        }
+    }
+
+    free(tab);
+}
+```
+
 # Solutions
 ## Ex 1
 #### Points importants
@@ -149,4 +176,8 @@ void ex3()
     // a ne pas oublier
     free(c);
 }
+```
+
+## Ex 4
+```C
 ```
