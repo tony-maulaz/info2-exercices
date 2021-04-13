@@ -114,6 +114,7 @@ void ex4()
 - Ne pas oublier de compter le `\0`
 - Test du pointeur `NULL`
 - Libération de la mémoire
+- Pas besoin du `sizeof(char)` car toujours `1`
 
 ```C
 void printUpper(char* txt){
