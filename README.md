@@ -17,3 +17,6 @@ Exercice sur l'allocation de mémoire
 
 ### Préprocesseur
 Exercice sur le préprocesseur et les macros
+
+### Compilation séparée
+Exercice pour la compilation séparée
