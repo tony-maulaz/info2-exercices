@@ -14,3 +14,6 @@ Exercice sur les structures en `C`
 
 ### Allocation
 Exercice sur l'allocation de mémoire
+
+### Préprocesseur
+Exercice sur le préprocesseur et les macros
