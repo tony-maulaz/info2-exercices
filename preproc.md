@@ -24,6 +24,18 @@ void ex1(){
 }
 ```
 
+## Ex 1.1
+
+Quel est l'affichage du programme suivant
+
+```C
+#define MAC_1_1(x,y) (x * y)
+
+void main(){
+    printf("Ex 1-1 : %d\n", MAC_1_1( 3+1 , 4+2 ));
+}
+```
+
 ## Ex 2
 
 Modifier le code ci-dessous.
@@ -70,6 +82,94 @@ Affichage
 QQQ
 ```
 
+## Ex 4
+
+Avec les définitions suivantes
+
+```C
+#define VAL_1 12
+#define VAL_2 7
+#define SOMME VAL_1 + VAL_2
+```
+
+Quel code sera généré par l'opération suivante
+```C
+    int val = SOMME * 4;
+```
+
+## Ex 5
+
+Avec la définition suivante
+
+```C
+#define DECL_STR(a) char* a = #a
+```
+
+Quel code sera généré par l'opération suivante
+```C
+    DECL_STR(txt);
+```
+
+## Ex 6
+
+Quel est l'affichage du programme suivant
+
+```C
+#define AFF_EX6
+
+void main(){
+    #ifdef AFF_EX6
+        printf("Ex 6 : Cas 1\n");
+    #else
+        printf("Ex 6 : Cas 2\n");
+    #endif
+}
+```
+
+## Ex 7
+
+Quel est l'affichage du programme suivant
+
+```C
+#define AFFICHAGE(a) printf("Le texte : %s", #a)
+
+#ifdef AFF_EX7
+    #define TEXTE AFFICHAGE(Bonjour);
+#else
+    #define TEXTE AFFICHAGE(Hello);
+#endif
+
+void main(){
+    TEXTE;
+}
+```
+
+## Ex 8
+Définir une macro qui donne le minimum entre 2 nombres
+
+*Utiliser une instruction ternaire*
+
+On doit pouvoir l'utiliser ainsi
+```C
+MIN_2(4,3)
+```
+
+## Ex 9
+En utilisant la macro de l'exercice `8`, définir une macro qui donne le minimum entre 3 nombres
+
+## Ex 10
+Créer une macro qui permet de test celle de l'exercice `9`
+
+En écrivant le code suivant 
+```C
+TEST_EX9(1,2,3)
+```
+La macro doit générer le code
+
+```C
+printf("Test macro MIN 1 2 3 : %d\n", MIN_3(1,2,3))
+```
+
 ## Solutions
 
 ### Ex 1
@@ -78,6 +178,19 @@ Ex 1 - val 1: 11
 Ex 1 - val 2: x=3,  res=3
 Ex 1 - val 3: 2.00
 ```
+
+### Ex 1-1
+
+```console
+Ex 1-1 : 9
+```
+
+Voici l'importance de mettre des `()` aussi entre les paramètres
+
+```C
+#define MAC_1_1(x,y) ((x) * (y))
+```
+
 
 ### Ex 2
 ```C
@@ -104,4 +217,39 @@ static void ex3(){
     REPEAT_1(3,'a');
     puts("");
 }
+```
+
+### Ex 4
+```C
+    int val = 12 + 7 * 4;
+```
+
+### Ex 5
+```C
+    char* txt = "txt";
+```
+
+### Ex 6
+```console
+Ex 6 : Cas 1
+```
+
+### Ex 7
+```console
+Le texte : Hello
+```
+
+### Ex 8
+```C
+#define MIN_2(a,b) (a < b ? a : b)
+```
+
+### Ex 9
+```C
+#define MIN_3(a,b,c)  ( (a < b) && (a < c) ? a : MIN_2(b,c))
+```
+
+### Ex 10
+```C
+#define TEST_EX9(x,y,z) printf("Test macro MIN " #x " " #y " " #z " : %d\n", MIN_3(x,y,z))
 ```
