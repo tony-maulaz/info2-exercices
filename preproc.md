@@ -126,7 +126,7 @@ void main(){
 }
 ```
 
-## Ex 7
+## Ex 7 (facultatif, pas demandé au TE ou exa)
 
 Quel est l'affichage du programme suivant
 
