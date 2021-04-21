@@ -97,7 +97,7 @@ Quel code sera généré par l'opération suivante
     int val = SOMME * 4;
 ```
 
-## Ex 5
+## Ex 5 (facultatif, pas demandé au TE ou exa)
 
 Avec la définition suivante
 
@@ -157,18 +157,6 @@ MIN_2(4,3)
 ## Ex 9
 En utilisant la macro de l'exercice `8`, définir une macro qui donne le minimum entre 3 nombres
 
-## Ex 10
-Créer une macro qui permet de test celle de l'exercice `9`
-
-En écrivant le code suivant 
-```C
-TEST_EX9(1,2,3)
-```
-La macro doit générer le code
-
-```C
-printf("Test macro MIN 1 2 3 : %d\n", MIN_3(1,2,3))
-```
 
 ## Solutions
 
@@ -247,9 +235,4 @@ Le texte : Hello
 ### Ex 9
 ```C
 #define MIN_3(a,b,c)  ( (a < b) && (a < c) ? a : MIN_2(b,c))
-```
-
-### Ex 10
-```C
-#define TEST_EX9(x,y,z) printf("Test macro MIN " #x " " #y " " #z " : %d\n", MIN_3(x,y,z))
 ```
