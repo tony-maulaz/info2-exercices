@@ -173,6 +173,11 @@ Ex 1 - val 3: 2.00
 Ex 1-1 : 9
 ```
 
+Le code créé sera 
+```C
+(3+1 * 4+2)
+```
+
 Voici l'importance de mettre des `()` aussi entre les paramètres
 
 ```C
