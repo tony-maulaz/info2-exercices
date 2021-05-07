@@ -1,5 +1,23 @@
 # TDA
+
 ## Ex 1
+
+Créer un type de donnée abstrait nomé `Vector`.
+
+Ce type de donnée va permette de gérer le calcul vectoriel.
+
+Un vecteur contient une composante `x` et `y` en valeur entière.
+
+Le `TDA` va permettre les opérations suivantes
+- `void vector_create(Vector* v, int x, int y)`
+- `vector vector_add(Vector* v1, Vector* v2)`
+- `vector vector_sub(Vector* v1, Vector* v2)`
+- `int vector_x(Vector* v)`
+- `int vector_y(Vector* v)`
+- `double vector_norme(Vector* v)`
+
+
+## Ex 2
 
 Créer un type de donnée nomé `Data`. Ce type va permettre de gérer un tableau dynamique.
 
@@ -101,107 +119,5 @@ void main(){
     printElement(&d);
 
     freeData(&d);
-}
-```
-
-
-
-## Solution
-
-
-### `main.c`
-```C
-#include <stdio.h>
-#include "data.h"
-
-void main(){
-    printf("\033[1;33mExercice 1\n\033[0m");    
-    Data d;
-    init(&d);
-    allocate(&d, 10);
-
-    for(int j=0; j<20; j++){
-        Element e = {.value = (j+23)/3.2};
-        if( !addElement(&d, &e) ){
-            printf("\033[1;31mIl n'y a plus de place\n\033[0m");
-            break;
-        }
-    }
-
-    printElement(&d);
-
-    freeData(&d);
-}
-```
-
-### `data.h`
-```C
-#pragma once
-#include <stdbool.h>
-
-typedef struct
-{
-    double value;
-} Element;
-
-typedef struct {
-    int capacity;
-    int nbrElement;
-    Element* element;
-} Data;
-
-
-void init(Data* d);
-bool allocate(Data* d, int capacity);
-void freeData(Data* d);
-bool addElement(Data* d, Element* e);
-void printElement(Data* d);
-```
-
-### `data.c`
-```C
-#include "data.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-void init(Data* d){
-    d->element = NULL;
-    d->capacity = 0;
-    d->nbrElement = 0;
-}
-
-bool allocate(Data* d, int capacity){
-    d->element = malloc(sizeof(Element) * capacity);
-    if( d->element == NULL ){
-        return false;
-    }
-    else{
-        d->capacity = capacity;
-        d->nbrElement = 0;
-        return true;
-    }
-}
-
-void freeData(Data* d){
-    free(d->element);
-    d->element = NULL;
-    d->capacity = 0;
-    d->nbrElement = 0;
-}
-
-bool addElement(Data* d, Element* e){
-    if( d->nbrElement >= d->capacity ){
-        return false;
-    }
-    else{
-        d->element[d->nbrElement++] = *e;
-    }
-    return true;
-}
-
-void printElement(Data* d){
-    for(size_t k = 0; k<d->nbrElement; k++){
-        printf("Element : %ld -> value : %.2lf\n", k, d->element[k].value);
-    }
 }
 ```
