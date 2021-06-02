@@ -175,7 +175,40 @@ Si la position n'est pas possible ou qu'il y a une erreur, la fonction retourne 
 Un fichier texte contient les données suivantes
 
 ```text
-2021-05-12 
+date,val1,val2
+2021-05-1,20,5.7
+
+2021-06-3,6,-78.00
+2021-06-3,7,AABB
+2021-06-12,2,36.2
+2021-07,1,45.67
+2021-07-3,34,-0.02
+2021-09-28,23,4587.3
+```
+
+Le format pour une ligne valide doit être : `date,val1,val2`. 
+
+Les valeurs sont séparées par des `,`.
+
+Si les informations d'une ligne ne correspond pas au format, la ligne sera simplement ignorée.
+
+### But
+
+Créer une fonction qui lit ce fichier texte et sauve chaque lignes dans une structure.
+
+La structure doit donc contenir au moins les trois valeurs de la ligne.
+
+Les structure seront placée par ordre croissant en utilisant `val1` comme donnée de tri.
+
+Développer une fonction qui affiche les données de la liste
+
+```text
+Date         Val1   Val2
+2021-06-12     2     36.2
+2021-06-3      6    -78.00
+2021-05-1     20      5.7
+2021-09-28    23   4587.3
+2021-07-3     34     -0.02
 ```
 
 
