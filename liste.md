@@ -169,6 +169,16 @@ Si la fonction est appelée avec
 
 Si la position n'est pas possible ou qu'il y a une erreur, la fonction retourne `false`
 
+
+## Ex 6
+
+Un fichier texte contient les données suivantes
+
+```text
+2021-05-12 
+```
+
+
 ## Solutions
 
 ### Ex 1
