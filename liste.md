@@ -239,6 +239,10 @@ bool add_element(List* l, Value* value)
 
 bool find_list(List* l, int id, Value* val)
 {
+    if( l->head == NULL ){
+        return false;
+    }
+
     Element* current = l->head;
     do
     {
