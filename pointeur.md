@@ -143,27 +143,31 @@ printf("Val4 = %d\n", *(p2));
 ## Ex 11
 Quel est l'affichage du programme suivant :
 ```C
-    int tab1[] = {1, 4, 7, 8, 12};
-    int* pTab1 = tab1;
-    int* p1 = tab1;
-    int* p2 = tab1 + 1;
-    int* pTab[] = {tab1, tab1+2, tab1+3};
-    int** pp1 = pTab+1;
-    int** pp2 = &p1;
-    const char* tabText[] = {"bonjour", "hello", "foo", "bar"};
+    int ar[] = {2, 4, 6, 8, 10};
+    int* p1 = ar;
+    int** pp1 = &p1;
+    int* p2 = ar + 2;
+    int* pAr[] = {ar+1, ar+2, ar};
+    int** pp2 = pAr+1;
+    const char* tabText[] = {"Bonjour","comment"};
 
-    puts("\nExemple de pointeurs");
-    printf("Val 1 : %d\n", pTab1[1]);
-    printf("Val 2 : %d\n", *(pTab1+2));
-    printf("Val 3 : %ld\n", pTab[2] - pTab1);
-    printf("Val 4 : %d\n", **pp2);
-    printf("Val 5 : %d\n", **pp1);
-    printf("Val 6 : %d\n", pp1[1][1]);
-    printf("Val 7 : %c\n", tabText[1][2]);
-    printf("Val 8 : %d\n", *(*pp1-1));
-    printf("Val 9 : %d\n", **(pp1-1));
-    printf("Val 10 : %c\n", **(tabText+2));
+    int num = 1;
+    puts("\nExemple de pointeurs\n");
+    printf("Val %d : %d\n", num++, ar[1]);
+    printf("Val %d : %d\n", num++, **pp1);
+    printf("Val %d : %d\n", num++, *(p1+1));
+    printf("Val %d : %ld\n", num++, pAr[1] - pAr[2]);
+    printf("Val %d : %d\n", num++, pp2[1][2]);
+    printf("Val %d : %d\n", num++, (*pp1)[1]);
+    printf("Val %d : %c\n", num++, tabText[0][3]);
+    printf("Val %d : %d\n", num++, *(*pp2-1));
+    printf("Val %d : %d\n", num++, **(pp2-1));
+    printf("Val %d : %c\n", num++, **(tabText+1));
+    printf("Val %d : %d\n", num++, *(pAr[1]+1));
+    printf("Val %d : %d\n", num++, *(pAr[1]+1));
+    printf("Val %d : %s\n", num++, *(tabText+1)+2);   
 ```
+
 ## Ex 12
 
 Remplacer les `...` pour que le programme affiche le nom du fichier
