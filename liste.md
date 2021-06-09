@@ -146,11 +146,12 @@ Avec la liste suivante
 typedef struct Element{
     int val;
     struct Element* next;
+    Element* previous;
 } Element;
 
 typedef struct{
-    Element* next;
-    Element* previous;
+    Element* head;
+    Element* queue;
 } List;
 ```
 
