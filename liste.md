@@ -146,7 +146,7 @@ Avec la liste suivante
 typedef struct Element{
     int val;
     struct Element* next;
-    Element* previous;
+    struct Element* previous;
 } Element;
 
 typedef struct{
