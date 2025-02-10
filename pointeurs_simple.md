@@ -31,6 +31,8 @@ représenter le résultat avec un tableau comme celui-ci.
 
 N'oubliez pas d'inscrire aussi la valeur des pointeurs
 
+Le tableau se trouve ici en [PDF](https://github.com/tony-maulaz/info2-exercices/blob/main/exercice-pointeur-tableau.pdf).
+
 Variable | Adresse | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 ---|---|---|---|---|---|---|---|---|---|---|---
 val_i | 10 | 12 
