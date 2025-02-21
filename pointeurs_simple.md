@@ -133,8 +133,6 @@ pc = &val_c;
 - Quand on déclare `int t2[3][4];`, on obtient ?
 - Quand on déclare `int** p2;`, on obtient ?
 - Quand on déclare `int* t3[3];`, on obtient ?
-- Quand on déclare `int (*p3)[3];` on obtient ?
-
 
 # Solutions
 
@@ -159,7 +157,6 @@ pc | 23 | 0 | | | 12 | 12 | | | | | 12
 - trois tableaux de quatre int
 - un pointeur de pointeur de int
 - trois pointeurs de int
-- un pointeur de tableau de 3 int
 
 ```C
 int t1[3] = { 1, 2, 3 };
