@@ -30,7 +30,6 @@ Quel est l'affichage du programme suivant :
     char* txt = "Bonjour";
     char* pc = txt;
 
-    printf("Val 1 : %ld\n", sizeof(txt));
     printf("Val 2 : %c\n", txt[0]);
     printf("Val 3 : %c\n", *(pc++));
     printf("Val 4 : %c\n", *(pc++));
@@ -199,7 +198,6 @@ Val 3 : 1
 
 ## Ex 3
 ```console
-Val 1 : 8
 Val 2 : B
 Val 3 : B
 Val 4 : o
