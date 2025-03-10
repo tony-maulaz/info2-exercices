@@ -1,47 +1,51 @@
 # Programme de mesure
 
 ## Mesure
-Il faut développer un programme pour sauver des mesures dans un fichier binaire.
+Il faut développer un programme pour sauvegarder des mesures dans un fichier binaire.
 
-Si il est utilisé plusieurs fois, le nom du fichier doit être dans une variable.
+S'il est utilisé plusieurs fois, le nom du fichier doit être stocké dans une variable.
 
-Afin de simuler une mesure journalière, il faut utiliser une boucle `for`.
+Afin de simuler une série de mesures journalière, il faut utiliser une boucle `for`.
 
-Chaque jour le fichier est ouvert pour l'écriture de la nouvelle mesure et ensuite fermé.
+Chaque jour, le fichier est ouvert pour l'écriture de la nouvelle mesure, puis fermé.
 
-Donc chaque jour le processus est :
-- Initialiser une nouvelle structure `Data` pour le jour en cours
-- Remplir le tableau `Measure` dans la structure avec les valeurs aléatoires.
-- Sauver la structure dans le fichier de mesures.
+Le processus quotidien est donc le suivant :
+- Initialiser une nouvelle structure `Data` pour le jour en cours.
+- Remplir le tableau `Measure` dans la structure avec des valeurs aléatoires.
+- Sauvegarder la structure dans le fichier des mesures.
 
-Dans `measure` :
-- `x` : l'indice de la mesure qui commence à `0` et s'incrémente de `1`
-- `value` : une valeur aléatoire en `0` et `100`
+Dans `Measure` :
+- `x` : l'indice de la mesure, qui commence à `0` et s'incrémente de `1`.
+- `value` : une valeur aléatoire comprise entre `0` et `100`.
 
-Pour les nombres aléatoires, utiliser le générateur `srand`.
+Pour générer des nombres aléatoires, utiliser le générateur `srand`.
 
-Il y a une mesure par jour et la variable `day` dans la structure `Data` représente le numéro du jour entre `1` et `365`,
+Il y a une série de mesure par jour, et la variable `day` dans la structure `Data` représente le numéro du jour, compris entre `1` et `365`.
 
-Les mesures ne commencent pas au jour `1`, le  jour de départ est choisit par un `#define` à `20`
+Les mesures ne commencent pas au jour `1`. Le jour de départ est défini par un `#define` à `20`.
 
-Le nombre de jour de mesure est donné par un `#define NBR_DAY`
+Le nombre de jours de mesure est défini par `#define NBR_DAY`.
 
-Faire une fonction `reset` qui permet de mettre tout les champs d'une structure `Data` à 0.
-
+## Taille du fichier
+Une fois les mesures terminées, il faut afficher la taille du fichier en octets (`byte`).
 
 ## Lecture
-Une fois les mesures terminées, il faut afficher la taille du fichier en `byte`.
+### Une mesure
+Développer une fonction permettant d'extraire une structure `Data` pour un jour donné en paramètre (voir le prototype de la fonction dans le code ci-dessous).
+Cette fonction doit extraire la structure depuis le fichier précédemment créé.
 
-Développer une fonction pour pouvoir extraire une structure `Data` pour un jour donné en paramètre (voir le prototype de la fonction dans le code ci-dessous).
-Cette fonction va extraire la structure depuis le fichier que vous avez créé avant.
+Étant donné que le jour de départ est connu, il est possible d'utiliser un décalage (fseek) afin d'éviter de lire l'intégralité du fichier.
 
-Développer une fonction pour pouvoir extraire un tableau de structure `Data` pour un jour donné en paramètre (voir le prototype de la fonction dans le code ci-dessous).
+Pas de contrôle pour savoir si le jour existe.
 
-Le nombre de mesure à lire est définit par `#define NBR_READ_MEASURES`
+### La série
+Développer une fonction permettant d'extraire un tableau de structures `Data` pour un jour donné en paramètre (voir le prototype de la fonction dans le code ci-dessous).
 
-Cette fonction va extraire le tableau de structure depuis le fichier que vous avez créé avant.
+Le nombre de mesures à lire est défini par `#define NBR_READ_MEASURES`.
 
-Si on extrait les valeurs qui ont été sauvées dans le fichier avec comme jour de départ `20`, on devrait avoir quelque chose ainsi :
+Cette fonction doit extraire le tableau de structures depuis le fichier précédemment créé.
+
+Si on extrait les valeurs sauvegardées dans le fichier avec un jour de départ `20`, on devrait obtenir quelque chose comme ceci :
 ```console
 day = 20
 measure[0] : x=0, value = ...
@@ -63,8 +67,7 @@ measure[3] : x=3, value = ...
 ...
 ```
 
-
-```C
+```c
 #define START_DAY 20
 #define NBR_MEASURE 10
 #define NBR_DAY 20
@@ -81,9 +84,6 @@ typedef struct
     int day;
     Measure measure[NBR_MEASURE];
 } Data;
-
-// Fonction pour faire le reset d'une structure
-// ....
 
 Data readMeasure(int day, char* filename)
 {}
@@ -155,5 +155,4 @@ void main()
         printf("\032[1;32mLecture mesure tab 1 pas bon\n\033[0m");
     }
 }
-
 ```
