@@ -338,6 +338,27 @@ A la fin du code suivant, quelle est la différence entre le contenu des deux fi
     fclose(fp);
 ```
 
+## Ex 11
+Une structure de donnée est définie comme suit :
+```C
+typedef struct{
+    int id;
+    double value;
+    char txt[10];
+} Meas;
+```
+
+On sait que dans le fichier `ex11_file.dat` il y a des données de type `Meas`.
+
+Créer une fonction qui prend en paramètre le nom du fichier et qui retourne le nombre de données de type `Meas` dans le fichier.
+
+En cas d'erreur, la fonction doit retourner `-1`.
+
+```C
+int count_meas(const char* filename);
+```
+
+
 # Solutions
 ## Q1
 On doit toujours tester si le fichier est bien ouvert
@@ -593,3 +614,20 @@ Le programme 2 a un fonctionnement plus sûr. Même si cela coûte un peu plus d
 
 ## Ex 10
 Aucune
+
+## Ex 11
+```C
+int count_meas(const char* filename) {
+    FILE *file = fopen(filename, "r"); // Ouvrir
+    if (file == NULL) {
+        return -1;
+    }
+
+    // Se déplacer à la fin du fichier pour obtenir la taille
+    fseek(file, 0, SEEK_END);
+    long file_size = ftell(file);
+    fclose(file); // Fermer le fichier
+
+    return file_size / sizeof(Meas); // Retourne le nombre d'éléments
+}
+```
