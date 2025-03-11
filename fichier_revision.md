@@ -22,7 +22,7 @@ generate_csv("sinus.csv", 10, 0.1, 1);
 
 Le calcul du sinus et du cosinus se fait avec la formule suivante :
 
-$sinus = sin(2 * PI * f * t)$
+$sinus = sin(2 \cdot \pi \cdot f \cdot t)$
 
 Le fichier généré doit ressembler à :
 ```
@@ -31,6 +31,8 @@ temps,sinus,cosinus
 0.1,0.1,0.995
 ...
 ```
+
+À l'aide de Python ou d'Excel, vous devriez pouvoir tracer les courbes contenues dans le fichier CSV.
 
 # Ex 4 :
 Une structure est définie comme suit :
