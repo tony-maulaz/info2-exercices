@@ -501,20 +501,20 @@ Val txt5 = GH
     f = fopen(filename, "r");
     if (f == NULL) exit(EXIT_FAILURE);
 
-    do
-    {
-        int nombre;
-        int square;
+    char buffer[MAX_LINE];
+
+    while (fgets(buffer, MAX_LINE, f) != NULL) {
+        int nombre, square;
         double root;
-        const int ret = fscanf(f, "%d,%d,%lf", &nombre, &square, &root);
 
-        if (ret == EOF)
-            break;
-        else if (ret == 0)
+        if (sscanf(buffer, "%d,%d,%lf", &nombre, &square, &root) == 3) {
+            printf("Num : %d  /  Square : %d  /  Root : %.2lf\n", nombre, square, root);
+        } else {
+            fprintf(stderr, "Erreur de lecture d'une ligne\n");
             exit(EXIT_FAILURE);
+        }
+    }
 
-        printf("Num : %d  /  Square : %d  /  Root : %.2lf\n", nombre, square, root);
-    } while (true);
     fclose(f);
 ```
 ## Ex 6
@@ -564,13 +564,21 @@ Val txt5 = GH
         exit(EXIT_FAILURE);
         
     int line = 3;
-    for (int i = 0; i < line; i++)
-        fscanf(fp, "%d-%d-%d %d:%d\t%d\t%lf", &year, &month, &day, &hour, &min, &id, &value);
+    for (int i = 0; i < line; i++) {
+        if (fgets(buffer, MAX_LINE, fp) != NULL) {
+            double value;
+        } else {
+            fprintf(stderr, "Erreur de lecture ou fin de fichier atteinte prématurément\n");
+            exit(EXIT_FAILURE);
+        }
+    }
 
-    printf("\nExercice 7 : lecture\n");
-    printf("Dat : %d/%d/%d\n", day, month, year);
-    printf("Time : %dh%d\n", hour, min);
-    printf("Value : %.2lf\n", value);
+    if (sscanf(buffer, "%d-%d-%d %d:%d\t%d\t%lf", &year, &month, &day, &hour, &min, &id, &value) == 7) {
+        printf("\nExercice 7 : lecture\n");
+        printf("Dat : %d/%d/%d\n", day, month, year);
+        printf("Time : %dh%d\n", hour, min);
+        printf("Value : %.2lf\n", value);
+    }
     fclose(fp);
 ```
 
