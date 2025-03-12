@@ -565,9 +565,7 @@ Val txt5 = GH
         
     int line = 3;
     for (int i = 0; i < line; i++) {
-        if (fgets(buffer, MAX_LINE, fp) != NULL) {
-            double value;
-        } else {
+        if (fgets(buffer, MAX_LINE, fp) == NULL) {
             fprintf(stderr, "Erreur de lecture ou fin de fichier atteinte prématurément\n");
             exit(EXIT_FAILURE);
         }
