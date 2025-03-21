@@ -29,7 +29,7 @@
    - ???
 
 2. **Créer des fonctions** :
-   - `DynamicArray* createArray(int capacity)`: Alloue et initialise un tableau dynamique. Si l'allocation échoue, retourne `NULL`.
+   - `bool createArray(int capacity, DynamicArray* array)`: Alloue et initialise un tableau dynamique. Si l'allocation échoue, retourne `NULL`.
    - `void destroyArray(DynamicArray* arr)`: Libère la mémoire allouée.
    - `int availableSpace(DynamicArray* arr)`: Retourne le nombre de places disponibles, `-1` si erreur.
    - `void addElement(DynamicArray* arr, double value)`: Ajoute un élément, agrandit si nécessaire.
