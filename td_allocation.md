@@ -47,7 +47,8 @@ Ceci est un exemple de programme de test pour vous aider à démarrer :
 ```c
 int main() {
     // Création du tableau dynamique avec une capacité initiale de 3
-    DynamicArray* arr = createArray(3);
+    DynamicArray arr = {0};
+    createArray(3, &arr);
     
     if (!isInitialized(arr)) {
         printf("Échec de l'initialisation du tableau.\n");
