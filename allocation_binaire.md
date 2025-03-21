@@ -33,3 +33,15 @@ Dans cet exercice, vous allez apprendre à :
 
 Une fois que le programme fonnctionne, vous devez pouvoir ajouter des valeurs dans le tableau sans
 perturber le fonctionnement du programme.
+
+### Partie 3
+
+Copiez le code des parties #1 et #2 et modifiez les pour avoir un tableau de structure plutôt que des `double`.
+
+Utilisez par exemple une structure : 
+```c
+typedef struct{
+    int x;
+    int y;
+}Point;
+```
