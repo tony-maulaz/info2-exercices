@@ -38,6 +38,9 @@
    - `bool isInitialized(DynamicArray* arr)`: Vérifie si le tableau est initialisé.
    - `bool getElement(DynamicArray* arr, int index, double* val)`: Copy la valeur de l'élément à l'index donné dans val et retourne `true`. La fonction retourne `false` en cas d'erreur.
 
+   - `bool insertElement(DynamicArray* arr, int index, double value)`: Ajoute un élément, agrandit si nécessaire et retourne `true`. La fonction retourne `false` en cas d'erreur.
+   - `bool removeAt(DynamicArray* arr, int index, double* value)`: Supprime un élément et retourne `true`. La fonction retourne `false` en cas d'erreur.
+
 3. **Utiliser un `#define`** pour définir le facteur d'agrandissement (`GROWTH_FACTOR`).
  
 4. **Écrire un programme** qui teste les différentes fonctions.
