@@ -114,6 +114,4 @@ int main(){
     DynamicArray arr = {0};
     bool res = createArray(3, &arr);
 
-
-    is_initialized()
 }
