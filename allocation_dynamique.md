@@ -43,7 +43,7 @@ typedef struct {
     char* name;
 } Container;
 
-Container* create(int capacity, const char* name){
+Container* create(int capacity, char* name){
     Container* ar = malloc(sizeof(Container));
     ar->datas = malloc(capacity * sizeof(Measure));
     ar->name = name;
