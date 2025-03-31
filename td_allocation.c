@@ -11,107 +11,104 @@ typedef struct {
 } DynamicArray;
 
 bool createArray(int capacity, DynamicArray* arr){
-    if( capacity <= 0 ) return false;
+    if (arr == NULL || capacity <= 0) return false;
 
     arr->data = malloc(capacity * sizeof(double));
-    if (arr->data == NULL) {
-        return false;
-    }
+    if (arr->data == NULL) return false;
+
     arr->capacity = capacity;
     arr->number_element = 0;
     return true;
 }
 
-bool is_initialized(DynamicArray* arr){
-    return !(arr == NULL || arr->data == NULL);
+bool isInitialized(DynamicArray* arr){
+    return arr != NULL && arr->data != NULL;
 }
 
-void add_element(DynamicArray* arr, double value){
-    if( !is_initialized(arr) ) exit(1);
+bool resizeIfNeeded(DynamicArray* arr){
+    if (!isInitialized(arr)) return false;
 
-    if(arr->number_element >= arr->capacity){
-        const int new_capacity = arr->capacity * GROWTH_FACTOR;
-        double* tmp = realloc(arr->data, sizeof(double) * new_capacity);
-        if( tmp == NULL ){
-            // backup ancien tableau
-            exit(1);
-        }
+    if (arr->number_element >= arr->capacity){
+        int new_capacity = arr->capacity * GROWTH_FACTOR;
+        double* tmp = realloc(arr->data, new_capacity * sizeof(double));
+        if (tmp == NULL) return false;
+
         arr->data = tmp;
         arr->capacity = new_capacity;
+        printf("Tableau agrandi à %d éléments.\n", new_capacity);
     }
-    // const int index = arr->number_element;
-    // arr->data[index] = value;
-    // arr->number_element++;
-
-    arr->data[(arr->number_element)++] = value;
+    return true;
 }
 
-int get_available(DynamicArray* arr){
+void addElement(DynamicArray* arr, double value){
+    if (!resizeIfNeeded(arr)) exit(1);
+    arr->data[arr->number_element++] = value;
+}
+
+int availableSpace(DynamicArray* arr){
+    if (!isInitialized(arr)) return -1;
     return arr->capacity - arr->number_element;
 }
 
-void destroy(DynamicArray* arr){
-    if( !is_initialized(arr) ) exit(1);
+void displayArray(DynamicArray* arr){
+    if (!isInitialized(arr)) {
+        printf("Tableau non initialisé\n");
+        return;
+    }
+    printf("Tableau : [ ");
+    for (int i = 0; i < arr->number_element; i++){
+        printf("%.2f ", arr->data[i]);
+    }
+    printf("]\n");
+}
 
+void destroyArray(DynamicArray* arr){
+    if (!isInitialized(arr)) exit(1);
     free(arr->data);
     arr->data = NULL;
     arr->capacity = 0;
     arr->number_element = 0;
 }
 
-bool pop_element(DynamicArray* arr, double* val){
-    if( !is_initialized(arr) || arr->number_element <= 1  )
+bool popElement(DynamicArray* arr, double* val){
+    if (!isInitialized(arr) || arr->number_element == 0 || val == NULL)
         return false;
 
-    *val = arr->data[--arr->number_element]; // version sur une ligne
-    // *val = arr->data[arr->number_element - 1];
-    // arr->number_element--;
+    *val = arr->data[--arr->number_element];
     return true;
 }
 
-bool get_element(DynamicArray* arr, int index, double* val){
-    if( !is_initialized(arr) || arr->number_element > index )
+bool getElement(DynamicArray* arr, int index, double* val){
+    if (!isInitialized(arr) || index < 0 || index >= arr->number_element || val == NULL)
         return false;
     *val = arr->data[index];
     return true;
 }
 
-bool resizeIfNeeded(DynamicArray* arr) {
-    if (!is_initialized(arr)) return false;
-
-    if (arr->number_element >= arr->capacity) {
-        int new_capacity = arr->capacity * GROWTH_FACTOR;
-        double* tmp = realloc(arr->data, sizeof(double) * new_capacity);
-        if (tmp == NULL) return false;
-
-        arr->data = tmp;
-        arr->capacity = new_capacity;
-    }
-    return true;
-}
-
-bool insertAt(DynamicArray* arr, int pos, double val) {
-    if (!is_initialized(arr) || pos < 0 || pos > arr->number_element)
+bool insertElement(DynamicArray* arr, int index, double value){
+    if (!isInitialized(arr) || index < 0 || index > arr->number_element)
         return false;
 
-    // réallocation
+    if (!resizeIfNeeded(arr)) return false;
 
-    // Décalage des éléments à droite
-    for (int i = arr->number_element; i > pos; i--) {
+    for (int i = arr->number_element; i > index; i--) {
         arr->data[i] = arr->data[i - 1];
     }
-
-    // Insertion
-    arr->data[pos] = val;
+    arr->data[index] = value;
     arr->number_element++;
-
     return true;
 }
 
-int main(){
-    printf("Gestion d'un tableau dynamique de double\n\n");
+bool removeAt(DynamicArray* arr, int index, double* value){
+    if (!isInitialized(arr) || index < 0 || index >= arr->number_element)
+        return false;
 
-    DynamicArray arr = {0};
-    bool res = createArray(3, &arr);
+    if (value != NULL)
+        *value = arr->data[index];
 
+    for (int i = index; i < arr->number_element - 1; i++) {
+        arr->data[i] = arr->data[i + 1];
+    }
+    arr->number_element--;
+    return true;
 }
