@@ -41,7 +41,6 @@ Lors de l'insertion, il faut respecter l'ordre alphabétique des noms.
 
 * Astuce : comparer les noms avec `strcmp`
 
-
 ## Partie 7 : Affichage de la liste
 Créer une fonction pour afficher la liste chaînée.
 
@@ -59,3 +58,8 @@ Dans la fonction `main` :
 5. Afficher la liste
 6. Libérer la mémoire de la liste
 7. Quitter le programme
+
+# Partie 10 : Fonctions
+- Créer une fonction qui retourne le nombre d’éléments dans la liste.
+- Créer une fonction qui permet de vider la liste.
+- Créer une fonction qui retire le premier élément de la liste. La fonction retourne false si la liste est vide, sinon true.
