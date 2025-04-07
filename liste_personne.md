@@ -62,4 +62,4 @@ Dans la fonction `main` :
 # Partie 10 : Fonctions
 - Créer une fonction qui retourne le nombre d’éléments dans la liste.
 - Créer une fonction qui permet de vider la liste.
-- Créer une fonction qui retire le premier élément de la liste. La fonction retourne false si la liste est vide, sinon true.
+- Créer une fonction qui retire le premier élément de la liste. La fonction retourne false si la liste est vide, sinon true. L'élément retiré de la liste est accessible par référence.
