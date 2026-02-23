@@ -4,7 +4,7 @@
 
 Déclarer une structure qui permet de représenter un `point` sans utiliser de `typedef`.
 
-Un `point` a une coordonnée `x` et une `y` qui sont de type `double`
+Un `point` a une coordonnée `x` et une coordonnée `y` qui sont de type `double`.
 
 ### Ex 2
 
@@ -23,7 +23,7 @@ int main(){
 
 ### Ex 3
 
-Quel est le problème du code ci-dessous ?
+Déclarer deux variables de type `Data` avec des valeurs identiques. Peut-on comparer `s1` et `s2` ?
 
 ```C
 struct Data {
@@ -32,13 +32,18 @@ struct Data {
 };
 
 int main(){
-    d1.c = 'a';
+    struct Data s1 = { .v1 = 1, .c = 'a' };
+    struct Data s2 = { .v1 = 1, .c = 'a' };
+
+    if (s1 == s2) {
+        printf("identiques\n");
+    }
 }
 ```
 
 ### Ex 4
 
-Quel est l'affichage du programme
+Quel est l'affichage du programme ?
 
 ```C
 typedef struct {
@@ -59,7 +64,7 @@ int main(){
 
 ### Ex 5
 
-Quel est l'affichage du programme
+Quel est l'affichage du programme ?
 
 ```C
 typedef struct {
@@ -74,7 +79,7 @@ int main(){
 
 ### Ex 6
 
-Complèter le code pour affecter "Bonjour" au champ `name` de `val`;
+Compléter le code pour affecter "Bonjour" au champ `name` de `d`.
 
 ```C
 typedef struct{
@@ -85,7 +90,7 @@ typedef struct{
 void main(){
     Data d;
     
-    // Complèter le code pour affecter "Bonjour" à la variable name de val;
+    // Compléter le code pour affecter "Bonjour" à la variable name de d.
 }
 ```
 ### Ex 7
@@ -139,11 +144,25 @@ void ex7() {
 }
 ```
 
+### Ex 8
+
+On donne la structure suivante :
+
+```C
+typedef struct {
+    char name[20];
+    int id;
+} Data2;
+```
+
+Écrire une fonction qui compare si les champs de deux structures sont identiques. Elle retourne `true`.
+Est-ce que l'on peut utiliser `memcmp` ?
+
 ## Solutions
 
 ### Ex 1
 
-Important, le nom du type est après le `struct`
+Important : le nom du type est après le `struct`.
 
 ```C
 struct Point
@@ -164,7 +183,7 @@ struct Data d1;
 
 ### Ex 3
 
-La variable `d1` n'est pas déclarée
+On ne peut pas comparer directement deux structures avec `==`. Il faut comparer champ par champ (ou utiliser `memcmp` si c'est pertinent).
 
 ### Ex 4
 ```console
@@ -182,4 +201,16 @@ strcpy(d.name, "Bonjour");
 ```
 
 ### Ex 7
-A vous de le compiler et de l'exécuter.
+À vous de le compiler et de l'exécuter.
+
+### Ex 8
+```C
+#include <stdbool.h>
+#include <string.h>
+
+bool data2_equal(const Data2* a, const Data2* b) {
+    return (a->id == b->id) && (strcmp(a->name, b->name) == 0);
+}
+```
+
+Concernant `memcmp` : ce n'est pas adapté ici, car `name` est un tableau de caractères et une partie du tableau peut ne pas être utilisée. `memcmp` comparerait aussi ces octets inutilisés. Il faut comparer champ par champ.
