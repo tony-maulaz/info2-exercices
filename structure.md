@@ -64,7 +64,7 @@ int main(){
 
 ### Ex 5
 
-Quel est l'affichage du programme ?
+Est-ce que l'on peut récupèrer le nombre de champs de cette façon ?
 
 ```C
 typedef struct {
