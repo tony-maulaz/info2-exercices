@@ -158,6 +158,12 @@ typedef struct {
 Écrire une fonction qui compare si les champs de deux structures sont identiques. Elle retourne `true`.
 Est-ce que l'on peut utiliser `memcmp` ?
 
+### Ex 9
+
+Créer une structure `Vector` qui contient `x` et `y` en `int`.
+Créer une fonction qui permet de sommer deux vecteurs et cette fonction retourne une nouvelle structure.
+Les structures sont passées en référence.
+
 ## Solutions
 
 ### Ex 1
@@ -214,3 +220,18 @@ bool data2_equal(const Data2* a, const Data2* b) {
 ```
 
 Concernant `memcmp` : ce n'est pas adapté ici, car `name` est un tableau de caractères et une partie du tableau peut ne pas être utilisée. `memcmp` comparerait aussi ces octets inutilisés. Il faut comparer champ par champ.
+
+### Ex 9
+```C
+typedef struct {
+    int x;
+    int y;
+} Vector;
+
+Vector vector_add(const Vector* a, const Vector* b) {
+    Vector r;
+    r.x = a->x + b->x;
+    r.y = a->y + b->y;
+    return r;
+}
+```
