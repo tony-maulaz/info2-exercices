@@ -15,7 +15,7 @@ EFGH
 ```
 
 ### Q1
-Quel est le problème du code ci-dessous ?
+Quel est le danger du code ci-dessous ?
 ```C
     FILE* f = fopen("question.txt", "r");
     char c;
@@ -171,48 +171,6 @@ for(...){
 }
 ```
 
-## Ex 6
-
-Dans un programme, nous avons la structure suivante :
-```C
-typedef struct{
-    int id;
-    double value;
-    char txt[10];
-} Meas;
-```
-
-Elle est déclarée ainsi :
-```C
-  Meas m1 = {.id=1, .value=2.34, .txt="Bonjour"};
-```
-
-Créer un programme qui exécute les opérations suivantes :
-- sauver cette structure dans un fichier.
-- fermer le fichier
-- ouvrir le fichier en lecture
-- lire le fichier pour placer les valeurs dans une structure `m2`
-- exécuter le code ci-dessous pour l'affichage
-
-```C
-  Meas m2;
-  // placer votre code de lecture ici
-
-  printf("\nExercice 6 : structure\n");
-  printf("Meas id : %d\n", m2.id);
-  printf("Meas value : %.2lf\n", m2.value);
-  printf("Meas txt : %s\n", m2.txt);
-```
-
-Votre programme doit afficher ceci :
-
-```console
-Exercice 6 : structure
-Meas id : 1
-Meas value : 2.34
-Meas txt : Bonjour
-```
-
 ## Ex 7
 Un fichier de mesure contient les valeurs suivantes (valeurs séparées par `\t`) :
 ```csv
@@ -250,64 +208,6 @@ Exercice 7 : lecture
 Dat : 9/3/2021
 Time : 14h12
 Value : 987.47
-```
-
-## Ex 9
-
-Il faut compléter le code suivant afin de sauvegarder le tableau `tab` dans un fichier.
-
-Ensuite le code doit ouvrir le fichier et afficher les valeurs qui ont été écrites dedans.
-
-```C
-    double tab[] = {1.2, 4.5, 123.4, -12.893, 45.66, 56.5, 1, 2, 3};
-
-    const int nbr_elem = // calcul du nombre d'éléments
-    // Écriture dans le fichier
-    fclose(fp);
-
-    double tab_r[100];
-    // Lecture du fichier et écriture des valeurs dans le tableau tab_r
-    fclose(fp);
-
-    // Affichage des valeurs du tableau
-    printf("Val : ");
-    for(int i=0; i<nbr_elem; i++)
-        printf(" %.2lf ", tab_r[i]);
-```
-
-## Ex 10
-
-À la fin du code suivant, quelle est la différence entre le contenu des deux fichiers ?
-
-```C
-    FILE* fp = fopen("ex10_file_1.dat", "w");
-    char buffer_out[] = {'1','2','3'};
-    fwrite(buffer_out, sizeof(char), 3, fp);
-    fclose(fp);
-
-    fp = fopen("ex10_file_2.dat", "w");
-    fprintf(fp, "123");
-    fclose(fp);
-```
-
-## Ex 11
-Une structure de données est définie comme suit :
-```C
-typedef struct{
-    int id;
-    double value;
-    char txt[10];
-} Meas;
-```
-
-On sait que dans le fichier `ex11_file.dat` il y a des données de type `Meas`.
-
-Créer une fonction qui prend en paramètre le nom du fichier et qui retourne le nombre de données de type `Meas` dans le fichier.
-
-En cas d'erreur, la fonction doit retourner `-1`.
-
-```C
-int count_meas(const char* filename);
 ```
 
 
@@ -469,27 +369,7 @@ Val txt5 = GH
 
     fclose(f);
 ```
-## Ex 6
-```C
-    Meas m1 = {.id = 1, .value = 2.34, .txt = "Bonjour"};
 
-    FILE* fp = fopen("ex6_struct.dat", "w");
-    if (fp == NULL) exit(EXIT_FAILURE);
-
-    fwrite(&m1, sizeof(Meas), 1, fp);
-    fclose(fp);
-
-    fp = fopen("ex6_struct.dat", "r");
-    if (fp == NULL) exit(EXIT_FAILURE);
-    Meas m2;
-    fread(&m2, sizeof(Meas), 1, fp);
-
-    printf("\nExercice 6 : structure\n");
-    printf("Meas id : %d\n", m2.id);
-    printf("Meas value : %.2lf\n", m2.value);
-    printf("Meas txt : %s\n", m2.txt);
-    fclose(fp);
-```
 ## Ex 7
 ```C
     FILE* fp = fopen("ex7_meteo.dat", "w");
@@ -530,47 +410,4 @@ Val txt5 = GH
         printf("Value : %.2lf\n", value);
     }
     fclose(fp);
-```
-
-## Ex 9
-```C
-    // Write
-    FILE* fp = fopen("ex9_file.dat", "w");
-    double tab[] = {1.2, 4.5, 123.4, -12.893, 45.66, 56.5, 1, 2, 3};
-
-    const int nbr_elem = sizeof(tab) / sizeof(double);
-    fwrite(&tab, sizeof(double), nbr_elem, fp);
-    fclose(fp);
-
-    // Read
-    double tab_r[100];
-    fp = fopen("ex9_file.dat", "r");
-    fread(&tab_r, sizeof(double), nbr_elem, fp);
-    fclose(fp);
-
-    printf("Val : ");
-    for(int i=0; i<nbr_elem; i++)
-        printf(" %.2lf ", tab_r[i]);
-
-    printf("\n");
-```
-
-## Ex 10
-Aucune
-
-## Ex 11
-```C
-int count_meas(const char* filename) {
-    FILE *file = fopen(filename, "r"); // Ouvrir
-    if (file == NULL) {
-        return -1;
-    }
-
-    // Se déplacer à la fin du fichier pour obtenir la taille
-    fseek(file, 0, SEEK_END);
-    long file_size = ftell(file);
-    fclose(file); // Fermer le fichier
-
-    return file_size / sizeof(Meas); // Retourne le nombre d'éléments
-}
 ```
