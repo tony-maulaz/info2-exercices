@@ -197,9 +197,7 @@ Val = 34
 ```
 
 ### Ex 5
-```console
-Val = 2
-```
+Il faut faire attention, en cas de padding le calcul sera faux
 
 ### Ex 6
 ```C
