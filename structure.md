@@ -4,7 +4,7 @@
 
 Déclarer une structure qui permet de représenter un `point` sans utiliser de `typedef`.
 
-Un `point` a une coordonnée `x` et une coordonnée `y` qui sont de type `double`.
+Un `point` a une coordonnée `x` et une coordonnée `y` qui sont de type `int`.
 
 ### Ex 2
 
